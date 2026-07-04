@@ -4,7 +4,8 @@ HealthGuard is a trusted public health assistant built using **Google's Agent De
 
 HealthGuard is designed with **privacy-first security layers**, including input validation and automated PII masking, and features a clean, responsive single-page web application.
 
-![HealthGuard UI Mockup](health_guard_dashboard.png)
+<img width="1024" height="1024" alt="image" src="https://github.com/user-attachments/assets/4d8bed05-1e57-4699-80a2-c2d29988307a" />
+
 
 ---
 
@@ -52,7 +53,8 @@ graph TD
     MCPServer -->|get_preventive_guidelines| GuidelinesDB[(Guidelines)]
 ```
 
-![HealthGuard System Architecture](health_guard_architecture.png)
+<img width="1024" height="1024" alt="image" src="https://github.com/user-attachments/assets/03f0142e-6367-4653-95ab-f810aee8ccf2" />
+
 
 
 ### Agents Role Definitions
@@ -72,45 +74,3 @@ graph TD
 
 ---
 
-## ⚙️ Setup & Local Running Instructions
-
-### Prerequisites
-*   Python 3.11 or 3.12
-*   [Astral uv](https://docs.astral.sh/uv/) python package manager installed
-
-### 1. Installation
-Clone the repository and run dependencies installation inside the project folder:
-```bash
-cd health-agent
-agents-cli install
-```
-
-### 2. Environment Configuration
-Create a `.env` file in the root directory and write your Gemini API key:
-```env
-GEMINI_API_KEY=YOUR_GEMINI_API_KEY
-GOOGLE_GENAI_USE_VERTEXAI=False
-```
-
-### 3. Run Automated Tests
-Execute the unit test suite to verify security masking and validation behavior:
-```bash
-uv run pytest tests/unit/test_health_agent.py
-```
-
-### 4. Start the Application
-Run the startup script:
-```bash
-uv run python run_app.py
-```
-This starts the FastAPI web server on `http://127.0.0.1:8000/` and opens the dashboard in your default browser automatically.
-
----
-
-## 🔗 REST API Endpoints
-
-*   **`GET /api/chat?query=<prompt>&session_id=<session_id>`**
-    Streams real-time execution events, routing handovers, tool calling, and token streams using Server-Sent Events (SSE).
-*   **`GET /api/session/clear?session_id=<session_id>`**
-    Deletes all session context, chat history, and variables in the server's memory.
-﻿# HealthGuard---Public-Health-Awareness-Agent-System
