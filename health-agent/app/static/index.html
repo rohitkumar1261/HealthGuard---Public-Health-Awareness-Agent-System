@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HealthGuard - Public Health AI</title>
+    <!-- Google Fonts for premium typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Main Workspace -->
+        <main class="main-workspace">
+            <!-- Header with Title and Agent Status Pipeline -->
+            <header class="workspace-header">
+                <div class="logo-area">
+                    <span class="logo-icon">🛡️</span>
+                    <div>
+                        <h2>HealthGuard AI</h2>
+                        <span class="logo-sub">Google ADK Public Health Assistant</span>
+                    </div>
+                </div>
+
+                <!-- Sleek horizontal status pipeline instead of complex canvas -->
+                <div class="agent-pipeline">
+                    <div class="pipeline-node active" id="node-health_coordinator_agent">
+                        <span class="dot"></span> Coordinator
+                    </div>
+                    <span class="arrow">→</span>
+                    <div class="pipeline-node" id="node-health_info_agent">
+                        <span class="dot"></span> Health Info
+                    </div>
+                    <span class="arrow">→</span>
+                    <div class="pipeline-node" id="node-myth_verification_agent">
+                        <span class="dot"></span> Myth Check
+                    </div>
+                    <span class="arrow">→</span>
+                    <div class="pipeline-node" id="node-preventive_care_agent">
+                        <span class="dot"></span> Preventive Care
+                    </div>
+                </div>
+
+                <div class="header-actions">
+                    <button class="btn-clear" onclick="clearSession()">Reset Session</button>
+                    <div class="session-badge">
+                        <span>Session: </span><span id="session-id-display">Generating...</span>
+                    </div>
+                </div>
+            </header>
+
+            <div class="workspace-grid">
+                <!-- Left: Chat Panel (Now takes most of the space) -->
+                <section class="panel chat-panel">
+                    <div class="chat-history" id="chat-history">
+                        <div class="chat-message system">
+                            <div class="message-content">
+                                <p>Welcome to HealthGuard. Ask questions about diseases, symptoms, health myths, vaccine schedules, or preventive care.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Clickable Example Query chips placed directly above input -->
+                    <div class="query-chips">
+                        <span class="chip-label">Try asking:</span>
+                        <button class="query-chip" onclick="setQuery('What are the symptoms of dengue fever?')">Dengue symptoms</button>
+                        <button class="query-chip" onclick="setQuery('Is it true that antibiotics cure viral infections?')">Antibiotics myth</button>
+                        <button class="query-chip" onclick="setQuery('How can I prevent heat stroke?')">Prevent heat stroke</button>
+                        <button class="query-chip" onclick="setQuery('What vaccinations are recommended for children?')">Child vaccines</button>
+                        <button class="query-chip" onclick="setQuery('My email is test@mail.com. Explain diabetes.')">Diabetes & PII Test</button>
+                    </div>
+
+                    <form class="chat-input-area" id="chat-form">
+                        <input type="text" id="query-input" placeholder="Ask a health question... (e.g., Dengue symptoms)" required autocomplete="off">
+                        <button type="submit" id="btn-submit">Send</button>
+                    </form>
+                    
+                    <footer class="disclaimer-footer">
+                        Disclaimer: This system provides educational information only and does not replace professional medical advice. Always consult a doctor for health concerns.
+                    </footer>
+                </section>
+
+            </div>
+        </main>
+    </div>
+
+    <!-- Alert Modal for visual alerts -->
+    <div id="safety-alert" class="safety-alert">
+        <div class="alert-content">
+            <span class="alert-close" onclick="closeAlert()">&times;</span>
+            <div class="alert-icon">🔒</div>
+            <div class="alert-text">
+                <h3>PII Masked Successfully</h3>
+                <p id="alert-message">Personal Identifiable Information was redacted.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/app.js"></script>
+</body>
+</html>

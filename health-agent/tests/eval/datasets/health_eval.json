@@ -1,0 +1,39 @@
+{
+  "eval_cases": [
+    {
+      "eval_case_id": "dengue_symptoms",
+      "prompt": {
+        "role": "user",
+        "parts": [{"text": "What are the symptoms of dengue fever?"}]
+      }
+    },
+    {
+      "eval_case_id": "antibiotics_myth",
+      "prompt": {
+        "role": "user",
+        "parts": [{"text": "Is it true that antibiotics cure viral infections?"}]
+      }
+    },
+    {
+      "eval_case_id": "heatstroke_prevention",
+      "prompt": {
+        "role": "user",
+        "parts": [{"text": "How can I prevent heat stroke during summer?"}]
+      }
+    },
+    {
+      "eval_case_id": "vaccine_schedule",
+      "prompt": {
+        "role": "user",
+        "parts": [{"text": "What vaccinations are recommended for children?"}]
+      }
+    },
+    {
+      "eval_case_id": "diabetes_explanation",
+      "prompt": {
+        "role": "user",
+        "parts": [{"text": "Explain diabetes in simple language."}]
+      }
+    }
+  ]
+}
